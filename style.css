@@ -1,0 +1,14 @@
+canvas {
+    border: 1px solid #eeff00;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* REMOVE if you don't want to show console */
+pre {
+    border: 1px solid #f1f500;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #ff000033F;
+}
