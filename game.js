@@ -28,6 +28,7 @@ var cellCount = 0;
 var highestValue = 0;
 //game over flag
 var gameOver = false;
+var homescreen = true;
 
 
 //maps a tiles value to it its color
@@ -51,6 +52,13 @@ function initColorMap() {
 }
 
 function start() {
+    startButton();
+    mouseClickMethod(startGame);
+}
+
+function startGame() {
+  if(homescreen) {
+    homescreen = false;
     score = 0;
     grid = new Grid(4, 4);
     initColorMap();
@@ -58,6 +66,7 @@ function start() {
     //canvas has height of 480, width of 400
     gridInit();
     keyDownMethod(keyHandler);
+  }
 }
 
 /**
@@ -617,3 +626,36 @@ function shiftRight() {
         currentlyAnimating = false;
     }
 }
+
+function startButton(){
+    var instructions = new Text(
+      "Use Arrow Keys Slide matching tiles together!",
+      "12pt Arial"
+    );
+    instructions.setPosition(
+      (getWidth() - instructions.getWidth()) / 2,
+      50
+    );
+    add(instructions);
+  
+    startButton = new Rectangle(150, 50);
+    startButton.setPosition((getWidth() / 2) - (startButton.getWidth() / 2), 255);
+    startButton.setColor("#4859A8");
+    
+    
+    var startButtonBorder = new Rectangle(160, 60);
+    startButtonBorder.setPosition((getWidth() / 2) - (startButtonBorder.getWidth() / 2), 250);
+    startButtonBorder.setColor(Color.black);
+    add(startButtonBorder);
+    
+    add(startButton);
+
+    var startText = new Text("Start");
+    startText.setPosition(
+      (getWidth() - startText.getWidth()) / 2,
+      275
+    );
+    add(startText)
+}
+
+     
